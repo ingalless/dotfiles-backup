@@ -4,6 +4,11 @@
 touch $HOME/.hushlogin
 
 # Install zsh
+echo 'Install zsh'
+echo '-----------'
+sudo apt install zsh
+
+# Install oh-my-zsh
 echo 'Install oh-my-zsh'
 echo '-----------------'
 rm -rf $HOME/.oh-my-zsh
@@ -23,6 +28,7 @@ sudo apt-get install -y python3-pip
 echo 'Install nvm'
 echo '-----------'
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+source ~/.bashrc
 
 # Install node
 echo 'Install node'
