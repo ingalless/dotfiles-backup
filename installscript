@@ -7,7 +7,7 @@ touch $HOME/.hushlogin
 echo 'Install oh-my-zsh'
 echo '-----------------'
 rm -rf $HOME/.oh-my-zsh
-curl -L https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh
 
 # Install Python
 echo 'Install python'
