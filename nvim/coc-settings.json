@@ -1,0 +1,123 @@
+{
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact",
+    "typescript.tsx",
+    "graphql",
+    "php"
+  ],
+  "languageserver": {
+    "intelephense": {
+      "enable": true,
+      "command": "intelephense",
+      "args": ["--stdio"],
+      "filetypes": ["php"],
+      "initializationOptions": {
+        "storagePath": "/tmp/intelephense"
+      },
+      "settings": {
+        "intelephense": {
+          "files": {
+            "maxSize": 1000000,
+            "associations": ["*.php", "*.phtml"]
+          },
+          "stubs": [
+            "pdo_sqlsrv",
+            "sqlsrv",
+            "apache",
+            "redis",
+            "bcmath",
+            "bz2",
+            "calendar",
+            "com_dotnet",
+            "Core",
+            "ctype",
+            "curl",
+            "date",
+            "dba",
+            "dom",
+            "enchant",
+            "exif",
+            "fileinfo",
+            "filter",
+            "fpm",
+            "ftp",
+            "gd",
+            "hash",
+            "iconv",
+            "imap",
+            "interbase",
+            "intl",
+            "json",
+            "ldap",
+            "libxml",
+            "mbstring",
+            "mcrypt",
+            "meta",
+            "mssql",
+            "mysqli",
+            "oci8",
+            "odbc",
+            "openssl",
+            "pcntl",
+            "pcre",
+            "PDO",
+            "pdo_ibm",
+            "pdo_mysql",
+            "pdo_pgsql",
+            "pdo_sqlite",
+            "pgsql",
+            "Phar",
+            "posix",
+            "pspell",
+            "readline",
+            "recode",
+            "Reflection",
+            "regex",
+            "session",
+            "shmop",
+            "SimpleXML",
+            "snmp",
+            "soap",
+            "sockets",
+            "sodium",
+            "SPL",
+            "sqlite3",
+            "standard",
+            "superglobals",
+            "sybase",
+            "sysvmsg",
+            "sysvsem",
+            "sysvshm",
+            "tidy",
+            "tokenizer",
+            "wddx",
+            "xml",
+            "xmlreader",
+            "xmlrpc",
+            "xmlwriter",
+            "Zend OPcache",
+            "zip",
+            "zlib"
+          ],
+          "completion": {
+            "insertUseDeclaration": true,
+            "fullyQualifyGlobalConstantsAndFunctions": false,
+            "triggerParameterHints": true,
+            "maxItems": 15
+          },
+          "format": {
+            "enable": true
+          }
+        }
+      }
+    }
+  }
+}
