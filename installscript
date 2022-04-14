@@ -71,4 +71,10 @@ ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
 
 # Symlink neovim prefs
 rm -rf $HOME/.config/nvim/
-ln -s $HOME/.dotfiles/nvim $HOME/.config/nvim/
+ln -s $HOME/.dotfiles/nvim $HOME/.config
+
+echo ''
+echo 'All done!'
+echo ''
+echo 'We have tried our best to install everything, but who knows how well it worked.'
+echo 'When you first load neovim it will try to install vim-plug, but you will still need to run :PlugInstall'
