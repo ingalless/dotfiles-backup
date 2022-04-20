@@ -40,6 +40,7 @@ call plug#end()
 source $HOME/.config/nvim/php.vim
 source $HOME/.config/nvim/bindings.vim
 
+set mouse=a
 set number relativenumber
 set nohlsearch
 set hidden
