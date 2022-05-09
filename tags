@@ -1,0 +1,82 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+<C-p>	nvim/bindings.vim	/^nnoremap <C-p> <cmd>lua require('telescope.builtin').find_files()<cr>$/;"	m
+<C-t>	nvim/bindings.vim	/^noremap <C-t> :NERDTreeToggle<CR>$/;"	m
+<S-TAB>	nvim/php.vim	/^inoremap <expr><S-TAB> pumvisible() ? "\\<C-p>" : "\\<C-h>"$/;"	m
+<TAB>	nvim/php.vim	/^inoremap <silent><expr> <TAB>$/;"	m
+<TAB>	nvim/php.vim	/^nmap <silent> <TAB> <Plug>(coc-range-select)$/;"	m
+<c-space>	nvim/php.vim	/^inoremap <silent><expr> <c-space> coc#refresh()$/;"	m
+<cr>	nvim/php.vim	/^  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\\<C-y>" : "\\<C-g>u\\<CR>"$/;"	m
+<cr>	nvim/php.vim	/^  inoremap <expr> <cr> pumvisible() ? "\\<C-y>" : "\\<C-g>u\\<CR>"$/;"	m
+<leader>[	nvim/bindings.vim	/^nnoremap <leader>[ <cmd>lua require("harpoon.ui").nav_prev()<cr>$/;"	m
+<leader>]	nvim/bindings.vim	/^nnoremap <leader>] <cmd>lua require("harpoon.ui").nav_next()<cr>$/;"	m
+<leader>a	nvim/php.vim	/^nmap <leader>a  <Plug>(coc-codeaction-selected)$/;"	m
+<leader>ac	nvim/php.vim	/^nmap <leader>ac  <Plug>(coc-codeaction)$/;"	m
+<leader>ec	nvim/bindings.vim	/^nnoremap <leader>ec <cmd>vsplit ~\/.config\/nvim\/<cr>$/;"	m
+<leader>f	nvim/php.vim	/^nmap <leader>f  <Plug>(coc-format-selected)$/;"	m
+<leader>fb	nvim/bindings.vim	/^nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>$/;"	m
+<leader>ff	nvim/bindings.vim	/^nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>$/;"	m
+<leader>fg	nvim/bindings.vim	/^nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>$/;"	m
+<leader>fh	nvim/bindings.vim	/^nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>$/;"	m
+<leader>j	nvim/bindings.vim	/^nnoremap <leader>j :call CocAction('diagnosticNext')<cr>$/;"	m
+<leader>k	nvim/bindings.vim	/^nnoremap <leader>k :call CocAction('diagnosticPrevious')<cr>$/;"	m
+<leader>ma	nvim/bindings.vim	/^nnoremap <leader>ma <cmd>lua require("harpoon.mark").add_file()<cr>$/;"	m
+<leader>mm	nvim/bindings.vim	/^nnoremap <leader>mm <cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>$/;"	m
+<leader>p	nvim/bindings.vim	/^noremap <leader>p "+p$/;"	m
+<leader>qf	nvim/php.vim	/^nmap <leader>qf  <Plug>(coc-fix-current)$/;"	m
+<leader>rmf	nvim/bindings.vim	/^noremap <leader>rmf :PhpactorMoveFile$/;"	m
+<leader>rn	nvim/bindings.vim	/^nmap <leader>rn <Plug>(coc-rename)$/;"	m
+<leader>rn	nvim/php.vim	/^nmap <leader>rn <Plug>(coc-rename)$/;"	m
+<leader>t	nvim/bindings.vim	/^noremap <leader>t :NERDTreeToggle<CR>$/;"	m
+<leader>y	nvim/bindings.vim	/^noremap <leader>y "+y$/;"	m
+<space>a	nvim/php.vim	/^nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>$/;"	m
+<space>c	nvim/php.vim	/^nnoremap <silent> <space>c  :<C-u>CocList commands<cr>$/;"	m
+<space>e	nvim/php.vim	/^nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>$/;"	m
+<space>j	nvim/php.vim	/^nnoremap <silent> <space>j  :<C-u>CocNext<CR>$/;"	m
+<space>k	nvim/php.vim	/^nnoremap <silent> <space>k  :<C-u>CocPrev<CR>$/;"	m
+<space>o	nvim/php.vim	/^nnoremap <silent> <space>o  :<C-u>CocList outline<cr>$/;"	m
+<space>p	nvim/php.vim	/^nnoremap <silent> <space>p  :<C-u>CocListResume<CR>$/;"	m
+<space>s	nvim/php.vim	/^nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>$/;"	m
+Fold	nvim/php.vim	/^command! -nargs=? Fold :call     CocAction('fold', <f-args>)$/;"	c
+Format	nvim/php.vim	/^command! -nargs=0 Format :call CocAction('format')$/;"	c
+K	nvim/php.vim	/^nnoremap <silent> K :call <SID>show_documentation()<CR>$/;"	m
+LspPHPIntelephense	nvim/php.vim	/^  augroup LspPHPIntelephense$/;"	a
+N	nvim/bindings.vim	/^nnoremap N Nzzzv$/;"	m
+OR	nvim/php.vim	/^command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')$/;"	c
+['<S-Tab>'] 	nvim/init.lua	/^    ['<S-Tab>'] = cmp.mapping(function(fallback)$/;"	f
+['<Tab>'] 	nvim/init.lua	/^    ['<Tab>'] = cmp.mapping(function(fallback)$/;"	f
+['[M'] 	nvim/init.lua	/^        ['[M'] = '@function.outer',$/;"	f
+['[m'] 	nvim/init.lua	/^        ['[m'] = '@function.outer',$/;"	f
+[']M'] 	nvim/init.lua	/^        [']M'] = '@function.outer',$/;"	f
+[']m'] 	nvim/init.lua	/^        [']m'] = '@function.outer',$/;"	f
+['af'] 	nvim/init.lua	/^        ['af'] = '@function.outer',$/;"	f
+['if'] 	nvim/init.lua	/^        ['if'] = '@function.inner',$/;"	f
+[g	nvim/php.vim	/^nmap <silent> [g <Plug>(coc-diagnostic-prev)$/;"	m
+]g	nvim/php.vim	/^nmap <silent> ]g <Plug>(coc-diagnostic-next)$/;"	m
+af	nvim/php.vim	/^omap af <Plug>(coc-funcobj-a)$/;"	m
+bootstrapTerminal	bootstrap	/^function bootstrapTerminal() {	$/;"	f
+callback 	nvim/init.lua	/^  callback = function()$/;"	f
+check_back_space	nvim/php.vim	/^function! s:check_back_space() abort$/;"	f
+expand 	nvim/init.lua	/^    expand = function(args)$/;"	f
+g:floaterm_keymap_new	nvim/bindings.vim	/^let g:floaterm_keymap_new = '<leader>ft'$/;"	v
+gd	nvim/php.vim	/^nmap <silent> gd <Plug>(coc-definition)$/;"	m
+gh	nvim/bindings.vim	/^nmap <silent>gh :call CocAction('doHover')<cr>$/;"	m
+gi	nvim/php.vim	/^nmap <silent> gi <Plug>(coc-implementation)$/;"	m
+gr	nvim/php.vim	/^nmap <silent> gr <Plug>(coc-references)$/;"	m
+gy	nvim/php.vim	/^nmap <silent> gy <Plug>(coc-type-definition)$/;"	m
+if	nvim/php.vim	/^omap if <Plug>(coc-funcobj-i)$/;"	m
+if vim.api.nvim_call_function('has', {'nvim-0.5'}) ~	nvim/plugin/packer_compiled.lua	/^if vim.api.nvim_call_function('has', {'nvim-0.5'}) ~= 1 then$/;"	f
+local no_errors, error_msg 	nvim/plugin/packer_compiled.lua	/^local no_errors, error_msg = pcall(function()$/;"	f
+local on_attach 	nvim/init.lua	/^local on_attach = function(_, bufnr)$/;"	f
+mapleader	nvim/bindings.vim	/^let mapleader=','$/;"	v
+mygroup	nvim/php.vim	/^augroup mygroup$/;"	a
+n	nvim/bindings.vim	/^nnoremap n nzzzv$/;"	m
+save_profiles	nvim/plugin/packer_compiled.lua	/^local function save_profiles(threshold)$/;"	f
+show_documentation	nvim/php.vim	/^function! s:show_documentation()$/;"	f
+time 	nvim/plugin/packer_compiled.lua	/^    time = function(chunk, start) end$/;"	f
+time 	nvim/plugin/packer_compiled.lua	/^    time = function(chunk, start)$/;"	f
+try_loadstring	nvim/plugin/packer_compiled.lua	/^local function try_loadstring(s, component, name)$/;"	f
