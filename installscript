@@ -72,6 +72,17 @@ echo 'Install ctags'
 echo '-------------'
 sudo apt-get install ctags
 
+# Install Lua LSP
+echo 'Install Lua LSP'
+echo '-------------'
+curl https://github.com/sumneko/lua-language-server/releases/download/3.2.2/lua-language-server-3.2.2-linux-x64.tar.gz
+mkdir -p $HOME/tools/lua-language-server
+mv lua-language-server-3.2.2-linux-x64.tar.gz $HOME/tools/lua-language-server
+cd $HOME/tools/lua-language-server
+tar -xvf lua-language-server-3.2.2-linux-x64.tar.gz
+cd $HOME
+
+
 # Install intelephense
 echo 'Install intelephense'
 echo '--------------------'

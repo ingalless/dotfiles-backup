@@ -125,6 +125,7 @@ alias bat="batcat"
 unsetopt beep
 export PATH="$PATH:/opt/mssql-tools/bin"
 export PATH="$PATH:/home/ingalless/.config/composer/vendor/bin"
+export PATH="$PATH:/home/ingalless/tools/lua-language-server/bin"
 eval "$(starship init zsh)"
 
 export NVM_DIR="$HOME/.nvm"
