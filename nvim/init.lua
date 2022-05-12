@@ -46,6 +46,12 @@ vim.wo.number = true
 --Enable mouse mode
 vim.o.mouse = 'a'
 
+--Tabstop
+vim.o.tabstop = 4
+
+--Offset
+vim.opt.scrolloff = 8
+
 --Enable break indent
 vim.o.breakindent = true
 
@@ -321,3 +327,5 @@ cmp.setup {
   },
 }
 -- vim: ts=2 sts=2 sw=2 et
+vim.keymap.set('n', '<leader>j', ':cnext<CR>')
+vim.keymap.set('n', '<leader>k', ':cprevious<CR>')
