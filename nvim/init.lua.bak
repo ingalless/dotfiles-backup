@@ -13,7 +13,6 @@ require('packer').startup(function(use)
   use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
   use 'tpope/vim-surround' -- Surround things easily
-  use 'tpope/vim-sleuth' -- Read .editorconfig 
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
   use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   -- UI to select things (files, grep results, open buffers...)
@@ -29,6 +28,7 @@ require('packer').startup(function(use)
   use 'nvim-treesitter/nvim-treesitter'
   -- Additional textobjects for treesitter
   use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use 'williamboman/nvim-lsp-installer' -- Automatic lsp installer
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
   use 'hrsh7th/cmp-nvim-lsp'
@@ -44,6 +44,12 @@ vim.wo.number = true
 
 --Enable mouse mode
 vim.o.mouse = 'a'
+
+--Tabstop
+vim.o.tabstop = 4
+
+--Offset
+vim.opt.scrolloff = 8
 
 --Enable break indent
 vim.o.breakindent = true
@@ -66,6 +72,9 @@ vim.o.background = "light"
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
+
+-- Wrapping
+vim.wo.wrap = false
 
 --Set statusbar
 require('lualine').setup {
@@ -133,10 +142,10 @@ require('telescope').load_extension 'fzf'
 
 --Add leader shortcuts
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers)
-vim.keymap.set('n', '<C-p>', function()
+vim.keymap.set('n', '<leader>sf', function()
   require('telescope.builtin').find_files { previewer = false }
 end)
-vim.keymap.set('n', '<leader>sf', function()
+vim.keymap.set('n', '<C-p>', function()
   require('telescope.builtin').find_files { previewer = false }
 end)
 vim.keymap.set('n', '<leader>sb', require('telescope.builtin').current_buffer_fuzzy_find)
@@ -214,7 +223,6 @@ local on_attach = function(_, bufnr)
   local opts = { buffer = bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
   vim.keymap.set('n', 'gh', vim.lsp.buf.hover, opts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
@@ -236,7 +244,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Enable the following language servers
-local servers = { 'tsserver', 'intelephense', 'eslint' }
+local servers = { 'tsserver', 'intelephense' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
@@ -320,8 +328,6 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
-
---Tabstop
-vim.o.tabstop = 4
+-- vim: ts=2 sts=2 sw=2 et
 vim.keymap.set('n', '<leader>j', ':cnext<CR>')
 vim.keymap.set('n', '<leader>k', ':cprevious<CR>')

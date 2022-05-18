@@ -114,20 +114,21 @@ export JAVA_HOME=/usr/bin/java
 # export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 # export LIBGL_ALWAYS_INDIRECT=1
 
-alias es="/usr/bin/emacs --daemon"
-alias e="emacsclient --create-frame"
 alias v="nvim"
 alias v.="nvim ."
 alias php81="sudo update-alternatives --set php /usr/bin/php8.1"
 alias php74="sudo update-alternatives --set php /usr/bin/php7.4"
-alias bat="batcat"
 
 unsetopt beep
 export PATH="$PATH:/opt/mssql-tools/bin"
 export PATH="$PATH:/home/ingalless/.config/composer/vendor/bin"
 export PATH="$PATH:/home/ingalless/tools/lua-language-server/bin"
-eval "$(starship init zsh)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Append this line to ~/.zshrc to enable fzf keybindings for Zsh:
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+# Append this line to ~/.zshrc to enable fuzzy auto-completion for Zsh:
+source /usr/share/doc/fzf/examples/completion.zsh
