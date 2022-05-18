@@ -236,7 +236,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Enable the following language servers
-local servers = { 'tsserver', 'intelephense', 'eslint' }
+local servers = { 'tsserver', 'eslint', 'intelephense' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
@@ -325,3 +325,6 @@ cmp.setup {
 vim.o.tabstop = 4
 vim.keymap.set('n', '<leader>j', ':cnext<CR>')
 vim.keymap.set('n', '<leader>k', ':cprevious<CR>')
+
+-- use rg for ctags
+vim.g.gutentags_file_list_command = 'rg --files'
