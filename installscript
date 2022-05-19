@@ -72,6 +72,11 @@ echo 'Install ctags'
 echo '-------------'
 sudo apt-get install ctags
 
+# Install tmux
+echo 'Install ctags'
+echo '-------------'
+sudo apt-get install -y tmux
+
 # Install Lua LSP
 echo 'Install Lua LSP'
 echo '-------------'
@@ -108,12 +113,13 @@ npm i -g typescript typescript-language-server
 rm $HOME/.zshrc
 ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
 
+# Symlink tmux prefs
+rm $HOME/.tmux.conf
+ln -s $HOME/.dotfiles/.tmux.conf $HOME/.tmux.conf
+
 # Symlink neovim prefs
 rm -rf $HOME/.config/nvim/
 ln -s $HOME/.dotfiles/nvim $HOME/.config/
-
-# Install starship
-curl -sS https://starship.rs/install.sh | sh
 
 # Change shell to ZSH
 chsh -s $(which zsh)
