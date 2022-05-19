@@ -34,6 +34,7 @@ require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
+  use 'mhartington/formatter.nvim'
 end)
 
 --Set highlight on search
@@ -321,10 +322,29 @@ cmp.setup {
   },
 }
 
---Tabstop
-vim.o.tabstop = 4
+require('formatter').setup {
+
+    filetype = {
+        typescript = {
+            require('formatter.filetypes.typescript').prettier
+        },
+        typescriptreact = {
+            require('formatter.filetypes.typescript').prettier
+        },
+        javascript = {
+            require('formatter.filetypes.typescript').prettier
+        },
+    }
+}
+
 vim.keymap.set('n', '<leader>j', ':cnext<CR>')
 vim.keymap.set('n', '<leader>k', ':cprevious<CR>')
 
 -- use rg for ctags
 vim.g.gutentags_file_list_command = 'rg --files'
+
+vim.o.ts = 4
+vim.o.sts = 4
+vim.o.sw = 4
+vim.o.expandtab = true
+vim.o.scrolloff = 8
