@@ -63,7 +63,7 @@ vim.wo.signcolumn = 'yes'
 --Set colorscheme
 vim.o.termguicolors = true
 vim.cmd [[colorscheme everforest]]
-vim.o.background = 'light'
+vim.o.background = 'dark'
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -237,7 +237,8 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Enable the following language servers
-local servers = { 'tsserver', 'eslint', 'intelephense', 'solidity_ls' }
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+local servers = { 'tsserver', 'eslint', 'intelephense', 'tailwindcss', 'solidity_ls' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
