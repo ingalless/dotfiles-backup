@@ -34,6 +34,7 @@ require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
+  use "nvim-telescope/telescope-file-browser.nvim"
 end)
 
 --Set highlight on search
@@ -130,15 +131,15 @@ require('telescope').setup {
 
 -- Enable telescope fzf native
 require('telescope').load_extension 'fzf'
+-- Enable filebrowser extension
+require('telescope').load_extension 'file_browser'
 
 --Add leader shortcuts
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers)
 vim.keymap.set('n', '<C-p>', function()
   require('telescope.builtin').find_files { previewer = false }
 end)
-vim.keymap.set('n', '<leader>sf', function()
-  require('telescope.builtin').find_files { previewer = false }
-end)
+vim.keymap.set('n', '<leader>sf', require('telescope').extensions.file_browser.file_browser)
 vim.keymap.set('n', '<leader>sb', require('telescope.builtin').current_buffer_fuzzy_find)
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags)
 vim.keymap.set('n', '<leader>st', require('telescope.builtin').tags)
