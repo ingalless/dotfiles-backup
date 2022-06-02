@@ -123,6 +123,7 @@ unsetopt beep
 export PATH="$PATH:/opt/mssql-tools/bin"
 export PATH="$PATH:/home/ingalless/.config/composer/vendor/bin"
 export PATH="$PATH:/home/ingalless/tools/lua-language-server/bin"
+export PATH="$PATH:/home/ingalless/.local/bin"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
