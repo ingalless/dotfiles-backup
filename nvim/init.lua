@@ -327,6 +327,10 @@ cmp.setup {
 vim.keymap.set('n', '<leader>j', ':cnext<CR>')
 vim.keymap.set('n', '<leader>k', ':cprevious<CR>')
 
+
+-- Context switching baby
+vim.keymap.set('n', '<leader>cs', ':tab drop tmp/notes.md<CR>')
+
 -- use rg for ctags
 vim.g.gutentags_file_list_command = 'rg --files'
 
