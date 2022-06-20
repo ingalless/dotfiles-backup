@@ -20,6 +20,8 @@ require('packer').startup(function(use)
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'sainnhe/everforest'
+  use 'sainnhe/edge'
+  -- use { 'sonph/onehalf', rtp = 'vim/' }
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
   -- Add indentation guides even on blank lines
   use 'lukas-reineke/indent-blankline.nvim'
@@ -52,6 +54,9 @@ vim.o.breakindent = true
 --Save undo history
 vim.opt.undofile = true
 
+--Shared clipboard
+vim.o.clipboard = 'unnamedplus'
+
 --Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -62,8 +67,8 @@ vim.wo.signcolumn = 'yes'
 
 --Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme everforest]]
-vim.o.background = 'dark'
+vim.cmd [[colorscheme edge]]
+vim.o.background = 'light'
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -72,7 +77,7 @@ vim.o.completeopt = 'menuone,noselect'
 require('lualine').setup {
   options = {
     icons_enabled = false,
-    theme = 'everforest',
+    theme = 'edge',
     component_separators = '|',
     section_separators = '',
   },
@@ -326,10 +331,11 @@ cmp.setup {
 
 vim.keymap.set('n', '<leader>j', ':cnext<CR>')
 vim.keymap.set('n', '<leader>k', ':cprevious<CR>')
+vim.keymap.set('n', '<leader>nw', ':set nowrap<CR>')
 
 
 -- Context switching baby
-vim.keymap.set('n', '<leader>cs', ':tab drop tmp/notes.md<CR>')
+vim.keymap.set('n', '<leader>cs', ':tab drop .notes.md<CR>')
 
 -- use rg for ctags
 vim.g.gutentags_file_list_command = 'rg --files'

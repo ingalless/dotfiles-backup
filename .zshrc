@@ -116,8 +116,10 @@ export JAVA_HOME=/usr/bin/java
 
 alias v="nvim"
 alias v.="nvim ."
-alias php81="sudo update-alternatives --set php /usr/bin/php8.1"
-alias php74="sudo update-alternatives --set php /usr/bin/php7.4"
+alias art="php artisan"
+alias ts="tmux-sessionizer"
+# Like, switch php, you get it?
+alias sphp="sudo update-alternatives --config php"
 
 unsetopt beep
 export PATH="$PATH:/opt/mssql-tools/bin"
