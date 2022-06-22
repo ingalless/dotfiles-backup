@@ -118,6 +118,7 @@ alias v="nvim"
 alias v.="nvim ."
 alias art="php artisan"
 alias ts="tmux-sessionizer"
+alias ta="tmux attach"
 # Like, switch php, you get it?
 alias sphp="sudo update-alternatives --config php"
 alias dcu="docker compose up -d"
