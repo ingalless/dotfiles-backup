@@ -120,6 +120,8 @@ alias art="php artisan"
 alias ts="tmux-sessionizer"
 # Like, switch php, you get it?
 alias sphp="sudo update-alternatives --config php"
+alias dcu="docker compose up -d"
+alias dcd="docker compose down"
 
 unsetopt beep
 export PATH="$PATH:/opt/mssql-tools/bin"
@@ -135,3 +137,5 @@ export NVM_DIR="$HOME/.nvm"
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 # Append this line to ~/.zshrc to enable fuzzy auto-completion for Zsh:
 source /usr/share/doc/fzf/examples/completion.zsh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
