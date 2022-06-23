@@ -332,6 +332,7 @@ cmp.setup {
 vim.keymap.set('n', '<leader>j', ':cnext<CR>')
 vim.keymap.set('n', '<leader>k', ':cprevious<CR>')
 vim.keymap.set('n', '<leader>nw', ':set nowrap<CR>')
+vim.keymap.set('n', '<leader>ct', ':pu=strftime(\'%d/%m/%y %H:%M:%S\')<CR>')
 
 
 -- Context switching baby

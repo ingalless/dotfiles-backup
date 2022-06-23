@@ -71,7 +71,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git
+  git
   zsh-autosuggestions
 )
 
@@ -123,6 +123,8 @@ alias ta="tmux attach"
 alias sphp="sudo update-alternatives --config php"
 alias dcu="docker compose up -d"
 alias dcd="docker compose down"
+alias e="exit"
+alias c="clear"
 
 unsetopt beep
 export PATH="$PATH:/opt/mssql-tools/bin"
