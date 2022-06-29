@@ -37,13 +37,14 @@ require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use "nvim-telescope/telescope-file-browser.nvim"
+  use 'vimwiki/vimwiki'
 end)
 
 --Set highlight on search
 vim.o.hlsearch = false
 
 --Make line numbers default
-vim.wo.number = true
+vim.wo.relativenumber = true
 
 --Enable mouse mode
 vim.o.mouse = 'a'
@@ -346,3 +347,5 @@ vim.o.sts = 4
 vim.o.sw = 4
 vim.o.expandtab = true
 vim.o.scrolloff = 8
+
+vim.g.vimwiki_list = {{path = '~/personal/wiki', syntax = 'markdown', ext = '.md'}}
