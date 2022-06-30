@@ -4,13 +4,13 @@ command=$1
 fileTitle=$2
 
 new () {
-    currUTC=$(date +%s)
+    timestamp=$(date '+%Y%m%d%H%M%S')
     if [[ -n $fileTitle ]]; then
-        file="$HOME/personal/wiki/'$currUTC $fileTitle'.md"
+        file="$HOME/personal/wiki/$timestamp.md"
         touch $file
         echo "# $fileTitle" > "$file"
     else
-        file="~/personal/wiki/$currUTC.md"
+        file="$HOME/personal/wiki/$timestamp.md"
         touch $file
     fi
 
