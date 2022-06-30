@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+command=$1
+fileTitle=$2
+
+new () {
+    currUTC=$(date +%s)
+    if [[ -n $fileTitle ]]; then
+        file="$HOME/personal/wiki/'$currUTC $fileTitle'.md"
+        touch $file
+        echo "# $fileTitle" > "$file"
+    else
+        file="~/personal/wiki/$currUTC.md"
+        touch $file
+    fi
+
+    $EDITOR $file 
+}
+
+if [[ $command == "new" ]]; then
+    new
+else
+    echo "Command must be 'new'"
+fi
+

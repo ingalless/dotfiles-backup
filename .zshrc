@@ -91,6 +91,8 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
+export EDITOR='nvim'
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -142,3 +144,5 @@ source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+if [ -e /home/ingalless/.nix-profile/etc/profile.d/nix.sh ]; then . /home/ingalless/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
