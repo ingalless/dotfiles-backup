@@ -37,6 +37,7 @@ require('packer').startup(function(use)
     use 'saadparwaiz1/cmp_luasnip'
     use 'L3MON4D3/LuaSnip' -- Snippets plugin
     use "nvim-telescope/telescope-file-browser.nvim"
+    use 'ThePrimeagen/harpoon'
 end)
 
 --Set highlight on search
@@ -244,13 +245,20 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Enable the following language servers
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-local servers = { 'tsserver', 'eslint', 'intelephense', 'tailwindcss', 'solidity_ls' }
+local servers = { 'tsserver', 'eslint', 'intelephense', 'solidity_ls', 'marksman' }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         on_attach = on_attach,
         capabilities = capabilities,
     }
 end
+
+lspconfig['tailwindcss'].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "html", "blade", "php", "javascript", "typescript", "javascriptreact", "typescriptreact" }
+}
+
 
 -- Example custom server
 -- Make runtime files discoverable to the server
@@ -346,4 +354,14 @@ vim.o.sts = 4
 vim.o.sw = 4
 vim.o.expandtab = true
 vim.o.scrolloff = 8
+
+-- harpoon
+vim.keymap.set('n', '<leader>hh', require('harpoon.mark').add_file)
+vim.keymap.set('n', '<leader>hs', require('harpoon.ui').toggle_quick_menu)
+vim.keymap.set('n', '<leader>h]', require('harpoon.ui').nav_next)
+vim.keymap.set('n', '<leader>h[', require('harpoon.ui').nav_prev)
+vim.keymap.set('n', '<leader>J', function () require("harpoon.ui").nav_file(1) end)
+vim.keymap.set('n', '<leader>K', function () require("harpoon.ui").nav_file(2) end)
+vim.keymap.set('n', '<leader>L', function () require("harpoon.ui").nav_file(3) end)
+vim.keymap.set('n', '<leader>:', function () require("harpoon.ui").nav_file(4) end)
 
