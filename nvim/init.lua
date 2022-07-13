@@ -19,8 +19,7 @@ require('packer').startup(function(use)
     -- UI to select things (files, grep results, open buffers...)
     use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-    use 'sainnhe/everforest'
-    use 'sainnhe/edge'
+    use 'Shatur/neovim-ayu'
     -- use { 'sonph/onehalf', rtp = 'vim/' }
     use 'nvim-lualine/lualine.nvim' -- Fancier statusline
     -- Add indentation guides even on blank lines
@@ -68,7 +67,7 @@ vim.wo.signcolumn = 'yes'
 
 --Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme edge]]
+vim.cmd [[colorscheme ayu]]
 vim.o.background = 'light'
 
 -- Set completeopt to have a better completion experience
@@ -78,7 +77,7 @@ vim.o.completeopt = 'menuone,noselect'
 require('lualine').setup {
     options = {
         icons_enabled = false,
-        theme = 'edge',
+        theme = 'ayu',
         component_separators = '|',
         section_separators = '',
     },
@@ -360,8 +359,7 @@ vim.keymap.set('n', '<leader>hh', require('harpoon.mark').add_file)
 vim.keymap.set('n', '<leader>hs', require('harpoon.ui').toggle_quick_menu)
 vim.keymap.set('n', '<leader>h]', require('harpoon.ui').nav_next)
 vim.keymap.set('n', '<leader>h[', require('harpoon.ui').nav_prev)
-vim.keymap.set('n', '<leader>J', function () require("harpoon.ui").nav_file(1) end)
-vim.keymap.set('n', '<leader>K', function () require("harpoon.ui").nav_file(2) end)
-vim.keymap.set('n', '<leader>L', function () require("harpoon.ui").nav_file(3) end)
-vim.keymap.set('n', '<leader>:', function () require("harpoon.ui").nav_file(4) end)
-
+vim.keymap.set('n', '<leader>J', function() require("harpoon.ui").nav_file(1) end)
+vim.keymap.set('n', '<leader>K', function() require("harpoon.ui").nav_file(2) end)
+vim.keymap.set('n', '<leader>L', function() require("harpoon.ui").nav_file(3) end)
+vim.keymap.set('n', '<leader>:', function() require("harpoon.ui").nav_file(4) end)
