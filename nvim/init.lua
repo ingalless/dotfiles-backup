@@ -19,7 +19,11 @@ require('packer').startup(function(use)
     -- UI to select things (files, grep results, open buffers...)
     use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-    use 'Shatur/neovim-ayu'
+    use({
+        'rose-pine/neovim',
+        as = 'rose-pine',
+        tag = 'v1.*',
+    })
     -- use { 'sonph/onehalf', rtp = 'vim/' }
     use 'nvim-lualine/lualine.nvim' -- Fancier statusline
     -- Add indentation guides even on blank lines
@@ -67,7 +71,7 @@ vim.wo.signcolumn = 'yes'
 
 --Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme ayu]]
+vim.cmd [[colorscheme rose-pine]]
 vim.o.background = 'light'
 
 -- Set completeopt to have a better completion experience
@@ -77,7 +81,7 @@ vim.o.completeopt = 'menuone,noselect'
 require('lualine').setup {
     options = {
         icons_enabled = false,
-        theme = 'ayu',
+        theme = 'rose-pine',
         component_separators = '|',
         section_separators = '',
     },
