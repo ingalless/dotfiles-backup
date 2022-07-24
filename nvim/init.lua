@@ -41,6 +41,13 @@ require('packer').startup(function(use)
     use 'L3MON4D3/LuaSnip' -- Snippets plugin
     use "nvim-telescope/telescope-file-browser.nvim"
     use 'ThePrimeagen/harpoon'
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+            require("trouble").setup()
+        end
+    }
 end)
 
 --Set highlight on search
@@ -70,9 +77,10 @@ vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
 --Set colorscheme
+require('rose-pine').setup({ dark_variant = 'moon' })
 vim.o.termguicolors = true
 vim.cmd [[colorscheme rose-pine]]
-vim.o.background = 'light'
+vim.o.background = 'dark'
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -154,6 +162,7 @@ vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags)
 vim.keymap.set('n', '<leader>st', require('telescope.builtin').tags)
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').grep_string)
 vim.keymap.set('n', '<leader>sp', require('telescope.builtin').live_grep)
+vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics)
 vim.keymap.set('n', '<leader>so', function()
     require('telescope.builtin').tags { only_current_buffer = true }
 end)
@@ -248,7 +257,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Enable the following language servers
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-local servers = { 'tsserver', 'eslint', 'intelephense', 'solidity_ls', 'marksman' }
+local servers = { 'tsserver', 'eslint', 'intelephense', 'solidity_ls', 'marksman', 'prismals' }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         on_attach = on_attach,
@@ -367,3 +376,8 @@ vim.keymap.set('n', '<leader>J', function() require("harpoon.ui").nav_file(1) en
 vim.keymap.set('n', '<leader>K', function() require("harpoon.ui").nav_file(2) end)
 vim.keymap.set('n', '<leader>L', function() require("harpoon.ui").nav_file(3) end)
 vim.keymap.set('n', '<leader>:', function() require("harpoon.ui").nav_file(4) end)
+
+-- Trouble
+vim.keymap.set('n', '<leader>xx', "<cmd>TroubleToggle<cr>",
+    { silent = true, noremap = true }
+)

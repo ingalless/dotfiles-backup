@@ -126,7 +126,9 @@ alias sphp="sudo update-alternatives --config php"
 alias dcu="docker compose up -d"
 alias dcd="docker compose down"
 alias e="exit"
-alias c="clear"
+alias cl="clear"
+alias c="composer"
+alias lg="lazygit"
 
 unsetopt beep
 export PATH="$PATH:/opt/mssql-tools/bin"
