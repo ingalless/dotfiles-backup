@@ -72,7 +72,6 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -111,7 +110,6 @@ export EDITOR='nvim'
 # zstyle ':autocomplete:*' min-input 1
 
 export DEFAULT_USER=`whoami`
-export JAVA_HOME=/usr/bin/java
 
 # export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 # export LIBGL_ALWAYS_INDIRECT=1
@@ -125,6 +123,8 @@ alias ta="tmux attach"
 alias sphp="sudo update-alternatives --config php"
 alias dcu="docker compose up -d"
 alias dcd="docker compose down"
+alias dce="docker exec -it"
+alias dcls="docker container ls"
 alias e="exit"
 alias cl="clear"
 alias c="composer"
@@ -135,6 +135,7 @@ export PATH="$PATH:/opt/mssql-tools/bin"
 export PATH="$PATH:/home/ingalless/.config/composer/vendor/bin"
 export PATH="$PATH:/home/ingalless/tools/lua-language-server/bin"
 export PATH="$PATH:/home/ingalless/.local/bin"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -145,6 +146,3 @@ source /usr/share/doc/fzf/examples/key-bindings.zsh
 # Append this line to ~/.zshrc to enable fuzzy auto-completion for Zsh:
 source /usr/share/doc/fzf/examples/completion.zsh
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-if [ -e /home/ingalless/.nix-profile/etc/profile.d/nix.sh ]; then . /home/ingalless/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

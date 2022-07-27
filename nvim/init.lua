@@ -48,6 +48,7 @@ require('packer').startup(function(use)
             require("trouble").setup()
         end
     }
+    use "ellisonleao/glow.nvim"
 end)
 
 --Set highlight on search
@@ -381,3 +382,6 @@ vim.keymap.set('n', '<leader>:', function() require("harpoon.ui").nav_file(4) en
 vim.keymap.set('n', '<leader>xx', "<cmd>TroubleToggle<cr>",
     { silent = true, noremap = true }
 )
+
+-- Glow
+vim.keymap.set('n', '<leader>gg', '<cmd>Glow<cr>')
