@@ -49,6 +49,10 @@ require('packer').startup(function(use)
         end
     }
     use "ellisonleao/glow.nvim"
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
 end)
 
 --Set highlight on search
@@ -385,3 +389,4 @@ vim.keymap.set('n', '<leader>xx', "<cmd>TroubleToggle<cr>",
 
 -- Glow
 vim.keymap.set('n', '<leader>gg', '<cmd>Glow<cr>')
+vim.keymap.set('n', '<leader>gp', '<cmd>MarkdownPreview<cr>')
