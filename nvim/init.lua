@@ -41,13 +41,7 @@ require('packer').startup(function(use)
     use 'L3MON4D3/LuaSnip' -- Snippets plugin
     use "nvim-telescope/telescope-file-browser.nvim"
     use 'ThePrimeagen/harpoon'
-    use {
-        "folke/trouble.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
-        config = function()
-            require("trouble").setup()
-        end
-    }
+    use "folke/trouble.nvim"
     use "ellisonleao/glow.nvim"
     use({
         "iamcco/markdown-preview.nvim",
@@ -85,7 +79,7 @@ vim.wo.signcolumn = 'yes'
 require('rose-pine').setup({ dark_variant = 'moon' })
 vim.o.termguicolors = true
 vim.cmd [[colorscheme rose-pine]]
-vim.o.background = 'dark'
+vim.o.background = 'light'
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
