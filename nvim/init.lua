@@ -24,7 +24,8 @@ require('packer').startup(function(use)
         as = 'rose-pine',
         tag = 'v1.*',
     })
-    -- use { 'sonph/onehalf', rtp = 'vim/' }
+    use 'Mofiqul/dracula.nvim'
+    use { "catppuccin/nvim", as = "catppuccin" }
     use 'nvim-lualine/lualine.nvim' -- Fancier statusline
     -- Add indentation guides even on blank lines
     use 'lukas-reineke/indent-blankline.nvim'
@@ -76,10 +77,10 @@ vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
 --Set colorscheme
-require('rose-pine').setup({ dark_variant = 'moon' })
 vim.o.termguicolors = true
-vim.cmd [[colorscheme rose-pine]]
-vim.o.background = 'light'
+vim.g.catppuccin_flavour = "frappe" -- latte, frappe, macchiato, mocha
+require("catppuccin").setup()
+vim.cmd [[colorscheme catppuccin]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -88,7 +89,7 @@ vim.o.completeopt = 'menuone,noselect'
 require('lualine').setup {
     options = {
         icons_enabled = false,
-        theme = 'rose-pine',
+        theme = 'catppuccin',
         component_separators = '|',
         section_separators = '',
     },
@@ -365,6 +366,7 @@ vim.o.sts = 4
 vim.o.sw = 4
 vim.o.expandtab = true
 vim.o.scrolloff = 8
+vim.opt.wrap = false
 
 -- harpoon
 vim.keymap.set('n', '<leader>hh', require('harpoon.mark').add_file)
