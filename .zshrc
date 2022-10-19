@@ -129,6 +129,8 @@ alias e="exit"
 alias cl="clear"
 alias c="composer"
 alias lg="lazygit"
+alias kstart="powershell.exe Start-Process komorebi -WindowStyle hidden"
+alias kstop="komorebic.exe stop"
 
 unsetopt beep
 export PATH="$PATH:/opt/mssql-tools/bin"
