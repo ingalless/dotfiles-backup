@@ -19,11 +19,7 @@ require('packer').startup(function(use)
     -- UI to select things (files, grep results, open buffers...)
     use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-    use({
-        'rose-pine/neovim',
-        as = 'rose-pine',
-        tag = 'v1.*',
-    })
+    use 'shaunsingh/nord.nvim'
     use 'Mofiqul/dracula.nvim'
     use { "catppuccin/nvim", as = "catppuccin" }
     use 'nvim-lualine/lualine.nvim' -- Fancier statusline
@@ -48,6 +44,7 @@ require('packer').startup(function(use)
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
     })
+    use 'xiyaowong/nvim-transparent'
 end)
 
 --Set highlight on search
@@ -80,7 +77,7 @@ vim.wo.signcolumn = 'yes'
 vim.o.termguicolors = true
 vim.g.catppuccin_flavour = "frappe" -- latte, frappe, macchiato, mocha
 require("catppuccin").setup()
-vim.cmd [[colorscheme catppuccin]]
+vim.cmd [[colorscheme nord]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -89,7 +86,7 @@ vim.o.completeopt = 'menuone,noselect'
 require('lualine').setup {
     options = {
         icons_enabled = false,
-        theme = 'catppuccin',
+        theme = 'nord',
         component_separators = '|',
         section_separators = '',
     },
