@@ -20,6 +20,7 @@ require('packer').startup(function(use)
     use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use 'shaunsingh/nord.nvim'
+    use "gruvbox-community/gruvbox"
     use 'Mofiqul/dracula.nvim'
     use { "catppuccin/nvim", as = "catppuccin" }
     use 'nvim-lualine/lualine.nvim' -- Fancier statusline
@@ -47,46 +48,49 @@ require('packer').startup(function(use)
     use 'xiyaowong/nvim-transparent'
 end)
 
+require('transparent').setup({
+    enable = true
+})
+
 --Set highlight on search
 vim.o.hlsearch = false
 
 --Make line numbers default
+vim.wo.relativenumber = true
 vim.wo.number = true
 
---Enable mouse mode
+--enable mouse mode
 vim.o.mouse = 'a'
 
---Enable break indent
+--enable break indent
 vim.o.breakindent = true
 
---Save undo history
+--save undo history
 vim.opt.undofile = true
 
---Shared clipboard
+--shared clipboard
 vim.o.clipboard = 'unnamedplus'
 
---Case insensitive searching UNLESS /C or capital in search
+--case insensitive searching unless /c or capital in search
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
---Decrease update time
+--decrease update time
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
---Set colorscheme
+--set colorscheme
 vim.o.termguicolors = true
-vim.g.catppuccin_flavour = "frappe" -- latte, frappe, macchiato, mocha
-require("catppuccin").setup()
-vim.cmd [[colorscheme nord]]
+vim.cmd [[colorscheme gruvbox]]
 
--- Set completeopt to have a better completion experience
+-- set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
---Set statusbar
+--set statusbar
 require('lualine').setup {
     options = {
         icons_enabled = false,
-        theme = 'nord',
+        theme = 'gruvbox',
         component_separators = '|',
         section_separators = '',
     },
@@ -250,11 +254,11 @@ end
 
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Enable the following language servers
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-local servers = { 'tsserver', 'eslint', 'intelephense', 'marksman' }
+local servers = { 'tsserver', 'intelephense' }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         on_attach = on_attach,
@@ -364,6 +368,7 @@ vim.o.sw = 4
 vim.o.expandtab = true
 vim.o.scrolloff = 8
 vim.opt.wrap = false
+vim.o.splitright = true
 
 -- harpoon
 vim.keymap.set('n', '<leader>hh', require('harpoon.mark').add_file)
@@ -383,3 +388,7 @@ vim.keymap.set('n', '<leader>xx', "<cmd>TroubleToggle<cr>",
 -- Glow
 vim.keymap.set('n', '<leader>gg', '<cmd>Glow<cr>')
 vim.keymap.set('n', '<leader>gp', '<cmd>MarkdownPreview<cr>')
+
+-- Center my ups and downs
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
