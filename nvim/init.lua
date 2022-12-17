@@ -45,12 +45,7 @@ require('packer').startup(function(use)
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
     })
-    use 'xiyaowong/nvim-transparent'
 end)
-
-require('transparent').setup({
-    enable = true
-})
 
 --Set highlight on search
 vim.o.hlsearch = false
@@ -248,8 +243,8 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', '<leader>so', require('telescope.builtin').lsp_document_symbols, opts)
-    vim.keymap.set('n', '<leader>ff', vim.lsp.buf.formatting, {})
-    vim.api.nvim_create_user_command("Format", vim.lsp.buf.formatting, {})
+    vim.keymap.set('n', '<leader>ff', vim.lsp.buf.format, {})
+    vim.api.nvim_create_user_command("Format", vim.lsp.buf.format, {})
 end
 
 -- nvim-cmp supports additional completion capabilities
@@ -258,7 +253,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Enable the following language servers
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-local servers = { 'tsserver', 'intelephense' }
+local servers = { 'tsserver', 'intelephense', 'eslint' }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         on_attach = on_attach,
@@ -266,11 +261,11 @@ for _, lsp in ipairs(servers) do
     }
 end
 
-lspconfig['tailwindcss'].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    filetypes = { "html", "blade", "php", "javascript", "typescript", "javascriptreact", "typescriptreact" }
-}
+-- lspconfig['tailwindcss'].setup {
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--     filetypes = { "html", "blade", "php", "javascript", "typescript", "javascriptreact", "typescriptreact" }
+-- }
 
 
 -- Example custom server
