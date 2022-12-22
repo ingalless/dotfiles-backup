@@ -1,0 +1,13 @@
+* {
+    primary: #458588;
+    secondary: #D65D0E;
+    background: #32302F;
+    foreground: #FBF1C7;
+
+    backlight:   #ccffeedd;
+    background-color:  transparent;
+    
+    highlight:     underline bold #eceff4;
+
+    transparent: rgba(46,52,64,0);
+}
