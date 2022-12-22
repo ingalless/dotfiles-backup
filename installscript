@@ -11,6 +11,9 @@ echo 'Install zsh'
 echo '-----------'
 sudo apt install zsh
 
+# Change shell to ZSH
+chsh -s $(which zsh)
+
 # Install oh-my-zsh
 echo 'Install oh-my-zsh'
 echo '-----------------'
@@ -20,12 +23,7 @@ wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.
 # Install Python
 echo 'Install python'
 echo '--------------'
-sudo apt-get install -y python3
-
-# Install pip
-echo 'Install pip'
-echo '-----------'
-sudo apt-get install -y python3-pip
+sudo apt-get install -y python3 python3-pip
 
 # Install nvm
 echo 'Install nvm'
@@ -73,7 +71,7 @@ echo '-------------'
 sudo apt-get install ctags
 
 # Install tmux
-echo 'Install ctags'
+echo 'Install tmux'
 echo '-------------'
 sudo apt-get install -y tmux
 
@@ -121,11 +119,31 @@ ln -s $HOME/.dotfiles/.tmux.conf $HOME/.tmux.conf
 rm -rf $HOME/.config/nvim/
 ln -s $HOME/.dotfiles/nvim $HOME/.config/
 
-# Change shell to ZSH
-chsh -s $(which zsh)
+# Symlink nitrogen
+rm -rf $HOME/.config/nitrogen/
+ln -s $HOME/.dotfiles/nitrogen $HOME/.config/
+
+# Symlink i3
+rm -rf $HOME/.config/i3/
+ln -s $HOME/.dotfiles/i3 $HOME/.config/
+
+# Symlink polybar
+rm -rf $HOME/.config/polybar/
+ln -s $HOME/.dotfiles/polybar $HOME/.config/
+
+# Symlink picom
+rm -rf $HOME/.config/picom/
+ln -s $HOME/.dotfiles/picom $HOME/.config/
+
+# Symlink kitty
+rm -rf $HOME/.config/kitty/
+ln -s $HOME/.dotfiles/kitty $HOME/.config/
+
+# Symlink rofi
+rm -rf $HOME/.config/rofi/
+ln -s $HOME/.dotfiles/rofi $HOME/.config/
 
 echo ''
 echo 'All done!'
 echo ''
 echo 'We have tried our best to install everything, but who knows how well it worked.'
-echo 'When you first load neovim it will try to install vim-plug, but you will still need to run :PlugInstall'
