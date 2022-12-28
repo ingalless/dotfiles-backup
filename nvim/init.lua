@@ -364,6 +364,7 @@ vim.o.expandtab = true
 vim.o.scrolloff = 8
 vim.opt.wrap = false
 vim.o.splitright = true
+vim.wo.foldmethod = 'indent'
 
 -- harpoon
 vim.keymap.set('n', '<leader>hh', require('harpoon.mark').add_file)
