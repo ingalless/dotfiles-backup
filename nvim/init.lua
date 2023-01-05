@@ -41,6 +41,7 @@ require('packer').startup(function(use)
     use 'ThePrimeagen/harpoon'
     use "folke/trouble.nvim"
     use "ellisonleao/glow.nvim"
+    use "ledger/vim-ledger"
     use({
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
@@ -388,3 +389,6 @@ vim.keymap.set('n', '<leader>gp', '<cmd>MarkdownPreview<cr>')
 -- Center my ups and downs
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
+
+-- Comma to toggle folds
+vim.keymap.set('n', ',', 'zA')

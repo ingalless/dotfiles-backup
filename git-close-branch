@@ -1,0 +1,7 @@
+BRANCH=$(git branch --show-current)
+DEFAULT=$(git remote show origin | awk '/HEAD branch/ {print $NF}')
+
+git checkout $DEFAULT
+git branch -d $BRANCH
+
+git pull
