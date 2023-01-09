@@ -1,7 +1,14 @@
-BRANCH=$(git branch --show-current)
-DEFAULT=$(git remote show origin | awk '/HEAD branch/ {print $NF}')
+#!/bin/bash
 
-git checkout $DEFAULT
+BRANCH=$(git branch --show-current)
+TARGET=$1
+
+if [ -z "$TARGET" ]; then
+    echo 'Expected one argument (e.g. master, dev)'
+    return
+fi
+
+git checkout $TARGET
 git branch -d $BRANCH
 
 git pull

@@ -366,6 +366,7 @@ vim.o.scrolloff = 8
 vim.opt.wrap = false
 vim.o.splitright = true
 vim.wo.foldmethod = 'indent'
+vim.o.cursorline = true
 
 -- harpoon
 vim.keymap.set('n', '<leader>hh', require('harpoon.mark').add_file)
