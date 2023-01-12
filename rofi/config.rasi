@@ -15,7 +15,7 @@ window {
     transparency: "screenshot";
     padding: 0px;
     border:  0px;
-    border-radius: 10px;
+    border-radius: 0px;
 
     background-color: @background;
     spacing: 0;
@@ -42,7 +42,7 @@ inputbar {
     background-color: @background;
 
     border: 1px;
-    border-radius:  6px 6px 0 0;
+    border-radius:  0;
     border-color: @primary;
 }
 
@@ -57,7 +57,7 @@ prompt {
 
 listview {
     padding: 0px;
-    border-radius: 0px 0px 6px 6px;
+    border-radius: 0px 0px 0px 0px;
     border-color: @primary;
     border: 0px 1px 1px 1px;
     background-color: @background;
@@ -87,7 +87,7 @@ button {
     horizontal-align: 0.5;
 
     border: 2px 0px 2px 2px;
-    border-radius: 4px 0px 0px 4px;
+    border-radius: 0px 0px 0px 0px;
     border-color: @foreground;
 }
 

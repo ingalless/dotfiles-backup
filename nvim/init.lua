@@ -21,8 +21,7 @@ require('packer').startup(function(use)
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use 'shaunsingh/nord.nvim'
     use "gruvbox-community/gruvbox"
-    use 'Mofiqul/dracula.nvim'
-    use { "catppuccin/nvim", as = "catppuccin" }
+    use "Shatur/neovim-ayu"
     use 'nvim-lualine/lualine.nvim' -- Fancier statusline
     -- Add indentation guides even on blank lines
     use 'lukas-reineke/indent-blankline.nvim'
@@ -77,7 +76,9 @@ vim.wo.signcolumn = 'yes'
 
 --set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme gruvbox]]
+vim.o.background = 'light'
+require('ayu').colorscheme()
+-- vim.cmd [[colorscheme gruvbox]]
 
 -- set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -86,7 +87,7 @@ vim.o.completeopt = 'menuone,noselect'
 require('lualine').setup {
     options = {
         icons_enabled = false,
-        theme = 'gruvbox',
+        theme = 'ayu',
         component_separators = '|',
         section_separators = '',
     },
@@ -366,6 +367,7 @@ vim.o.scrolloff = 8
 vim.opt.wrap = false
 vim.o.splitright = true
 vim.wo.foldmethod = 'indent'
+vim.wo.foldlevel = 20
 vim.o.cursorline = true
 
 -- harpoon
