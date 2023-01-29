@@ -76,9 +76,8 @@ vim.wo.signcolumn = 'yes'
 
 --set colorscheme
 vim.o.termguicolors = true
-vim.o.background = 'light'
-require('ayu').colorscheme()
--- vim.cmd [[colorscheme gruvbox]]
+vim.o.background = 'dark'
+vim.cmd [[colorscheme gruvbox]]
 
 -- set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -87,7 +86,7 @@ vim.o.completeopt = 'menuone,noselect'
 require('lualine').setup {
     options = {
         icons_enabled = false,
-        theme = 'ayu',
+        theme = 'gruvbox',
         component_separators = '|',
         section_separators = '',
     },
