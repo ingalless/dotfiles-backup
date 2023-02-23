@@ -6,14 +6,15 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
-vim.api.nvim_create_autocmd('BufWritePost', { command = 'source <afile> | PackerCompile', group = packer_group, pattern = 'init.lua' })
+vim.api.nvim_create_autocmd('BufWritePost',
+    { command = 'source <afile> | PackerCompile', group = packer_group, pattern = 'init.lua' })
 
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim' -- Package manager
     use 'tpope/vim-fugitive' -- Git commands in nvim
     use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
     use 'tpope/vim-surround' -- Surround things easily
-    use 'tpope/vim-sleuth' -- Read .editorconfig 
+    use 'tpope/vim-sleuth' -- Read .editorconfig
     use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
     use 'ludovicchabant/vim-gutentags' -- Automatic tags management
     -- UI to select things (files, grep results, open buffers...)
@@ -89,6 +90,9 @@ require('lualine').setup {
         theme = 'gruvbox',
         component_separators = '|',
         section_separators = '',
+    },
+    sections = {
+        lualine_c = { { 'filename', path = 1 } },
     },
 }
 
