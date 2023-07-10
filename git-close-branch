@@ -9,6 +9,6 @@ if [ -z "$TARGET" ]; then
 fi
 
 git checkout $TARGET
+git pull
 git branch -d $BRANCH
 
-git pull

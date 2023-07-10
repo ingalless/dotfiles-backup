@@ -22,7 +22,9 @@ require('packer').startup(function(use)
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use 'shaunsingh/nord.nvim'
     use "gruvbox-community/gruvbox"
+    use 'folke/tokyonight.nvim'
     use "Shatur/neovim-ayu"
+    use "projekt0n/github-nvim-theme"
     use 'nvim-lualine/lualine.nvim' -- Fancier statusline
     -- Add indentation guides even on blank lines
     use 'lukas-reineke/indent-blankline.nvim'
@@ -78,7 +80,7 @@ vim.wo.signcolumn = 'yes'
 --set colorscheme
 vim.o.termguicolors = true
 vim.o.background = 'dark'
-vim.cmd [[colorscheme gruvbox]]
+vim.cmd [[colorscheme ayu-light]]
 
 -- set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -87,7 +89,7 @@ vim.o.completeopt = 'menuone,noselect'
 require('lualine').setup {
     options = {
         icons_enabled = false,
-        theme = 'gruvbox',
+        theme = 'tokyonight',
         component_separators = '|',
         section_separators = '',
     },
@@ -258,7 +260,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Enable the following language servers
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-local servers = { 'tsserver', 'intelephense', 'eslint' }
+local servers = { 'tsserver', 'intelephense', 'eslint', 'rust_analyzer' }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         on_attach = on_attach,
