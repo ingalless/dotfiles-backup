@@ -131,6 +131,7 @@ alias c="composer"
 alias lg="lazygit"
 alias kstart="powershell.exe Start-Process komorebi -WindowStyle hidden"
 alias kstop="komorebic.exe stop"
+alias bb="open-in-bitbucket mondagodevelopment"
 
 unsetopt beep
 export PATH="$PATH:/opt/mssql-tools/bin"
