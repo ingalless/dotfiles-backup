@@ -12,6 +12,13 @@ open		Opens the current repository in your browser. Requires a repo name as args
 ====
 "
 
+commitUsage="
+Please pass a commit message.
+
+Example:
+	bitbucket-helpers commit \"Fixed bug in that file\"
+"
+
 COMMAND=$1
 ORG=mondagodevelopment
 case "$COMMAND" in
@@ -24,7 +31,7 @@ case "$COMMAND" in
 		SOURCE=$(git branch --show-current)
 		COMMIT=$2
 		if [[ -z "$COMMIT" ]]; then
-			echo "please pass a commit message"
+			echo "$commitUsage"
 			exit
 		fi
 		git commit -m "$SOURCE: $COMMIT"
