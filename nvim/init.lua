@@ -107,6 +107,18 @@ require('lazy').setup({
     },
   },
 
+  -- Surround
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
+  },
+
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim',          opts = {} },
   {
@@ -131,24 +143,44 @@ require('lazy').setup({
   },
 
   {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      vim.opt.background = 'dark'
+      vim.cmd.colorscheme 'tokyonight-storm'
+    end
+  },
+
+  {
+    'uloco/bluloco.nvim',
+    lazy = false,
+    priority = 1000,
+    dependencies = { 'rktjmp/lush.nvim' },
+    config = function()
+      -- vim.opt.background = 'light'
+      -- vim.cmd.colorscheme 'bluloco'
+    end,
+  },
+
+  {
     "ellisonleao/gruvbox.nvim",
     priority = 1000,
     config = function()
-      -- vim.opt.background = 'light'
+      -- vim.opt.background = 'dark'
       -- vim.cmd.colorscheme 'gruvbox'
     end
   },
 
   {
     'projekt0n/github-nvim-theme',
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       require('github-theme').setup({
         -- ...
       })
-
-      vim.cmd('colorscheme github_light')
     end,
   },
 
@@ -159,7 +191,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'ayu',
+        theme = 'tokyonight',
         component_separators = '|',
         section_separators = '',
       },
