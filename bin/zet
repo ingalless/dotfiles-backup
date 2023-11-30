@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+command=$1
+fileTitle=$2
+
+new () {
+    timestamp=$(date '+%Y%m%d%H%M%S')
+    if [[ -n $fileTitle ]]; then
+        file="$HOME/personal/wiki/$timestamp.md"
+        touch $file
+        echo "# $fileTitle" > "$file"
+    else
+        file="$HOME/personal/wiki/$timestamp.md"
+        touch $file
+    fi
+
+    $EDITOR $file 
+}
+
+if [[ $command == "new" ]]; then
+    new
+else
+    echo "Command must be 'new'"
+fi
+

@@ -1,0 +1,82 @@
+#!/bin/bash
+
+usage="bitbucket-helpers [command] [args]
+
+====
+Options for [command]
+
+pull		Pull latest changes and install dependencies.
+commit		Wrapper around 'git commit -m' which prefixes the current branch name. Requires a commit message as args.
+pr		Opens the current branch as a new PR in bitbucket.
+open		Opens the current repository in your browser. Requires a repo name as args.
+start		Checks out a new branch with the jira named in args
+====
+"
+
+commitUsage="
+Please pass a commit message.
+
+Example:
+	bitbucket-helpers commit \"Fixed bug in that file\"
+"
+
+startUsage="
+Please pass a name for the branch.
+
+Example:
+	bitbucket-helpers start ABC-123
+"
+
+COMMAND=$1
+ORG=mondagodevelopment
+case "$COMMAND" in
+	"jira")
+		JIRA=$(git branch --show-current)
+		if ! [ -x "$(command -v jira)" ]; then
+			echo 'Warn: jira cli is not installed. We will open the issue in a browser instead. You can download it at https://github.com/ankitpokhrel/jira-cli'
+			xdg-open "https://mondago.atlassian.net/browse/$JIRA" &> /dev/null
+		else
+			jira issue view $JIRA
+		fi
+		;;
+	
+	"start")
+		BRANCH=$3
+		if [[ -z "$BRANCH" ]]; then
+			echo "$startUsage"
+			exit
+		fi
+		git pull
+		git fetch -a
+		git checkout -b $2
+		;;
+	"pull")
+		git pull
+		composer install
+		yarn install
+		;;
+	"commit")
+		SOURCE=$(git branch --show-current)
+		COMMIT=$2
+		if [[ -z "$COMMIT" ]]; then
+			echo "$commitUsage"
+			exit
+		fi
+		git commit -m "$SOURCE: $COMMIT"
+		;;
+	"pr")
+		REPO=${PWD##*/} 
+		SOURCE=$(git branch --show-current)
+		# https://bitbucket.org/mondagodevelopment/c-panel/pull-requests/new?source=fix-registry&t=1
+		xdg-open "https://bitbucket.org/$ORG/$REPO/pull-request/new?source=$SOURCE&t=1" &> /dev/null
+		;;
+
+	"open")
+		REPO=$2
+		xdg-open https://bitbucket.org/$ORG/$REPO &> /dev/null
+		;;
+
+	*)
+		echo "$usage"
+		;;
+esac
