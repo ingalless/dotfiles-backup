@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+selected=$(fzf)
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+nvim $selected

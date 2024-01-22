@@ -1,0 +1,14 @@
+#!/bin/bash
+
+BRANCH=$(git branch --show-current)
+TARGET=$1
+
+if [ -z "$TARGET" ]; then
+    echo 'Expected one argument (e.g. master, dev)'
+    return
+fi
+
+git checkout $TARGET
+git pull
+git branch -d $BRANCH
+

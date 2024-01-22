@@ -1,6 +1,0 @@
-#!/bin/bash
-
-selection=$(ls ~/OneDrive/PKM/personal-notes/000\ Inbox/ | rofi -dmenu -p "note")
-
-# cat "$HOME/OneDrive/PKM/personal-notes/000 Inbox/$selection"
-$EDITOR "$HOME/OneDrive/PKM/personal-notes/000 Inbox/$selection"
